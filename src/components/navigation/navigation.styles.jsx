@@ -17,7 +17,7 @@ export const NavigationContainer = styled.div`
   display: flex;
   justify-content: space-between;
   flex-direction: row;
-  position: sticky;
+  position: fixed;
   padding: 2rem;
   top: 0;
   left: 0;
