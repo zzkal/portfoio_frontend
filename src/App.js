@@ -5,30 +5,35 @@ import Home from './routes/home/Home.component';
 
 function App() {
   const [isScrollDown, setisScrollDown] = useState(false);
-  const [Y, setY] = useState(0);
+  const [scrollTop, setScrollTop] = useState(0);
 
   useEffect(() => {
-    const handleScroll = () => {
-      window.onscroll = (e) => {
-        if (Y > 50) {
-          if (Y > window.scrollY) {
-            setisScrollDown(false);
-          } else {
-            setisScrollDown(true);
-          }
+    const handleScroll = (e) => {
+      let top = window.scrollY;
+      if (top > 50) {
+        if (scrollTop > top) {
+          setisScrollDown(false);
+        } else {
+          setisScrollDown(true);
         }
-
-        setY(window.scrollY);
-      };
+      }
+      setScrollTop(window.scrollY);
     };
-    handleScroll();
-  }, [Y]);
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [scrollTop]);
 
   return (
     <Routes>
       <Route
         path='/'
-        element={<Navigation isScrollDown={isScrollDown} positionY={Y} />}
+        element={
+          <Navigation isScrollDown={isScrollDown} positionY={scrollTop} />
+        }
       >
         <Route index element={<Home />}></Route>
       </Route>
