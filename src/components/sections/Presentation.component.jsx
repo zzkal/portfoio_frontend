@@ -4,6 +4,7 @@ import {
   BigText,
   MediumText,
   TitleContainer,
+  DoubleArrowIcon,
 } from './presentation.styles';
 
 const Presentation = () => {
@@ -17,6 +18,7 @@ const Presentation = () => {
           officia incidunt fugiat praesentium ut! Velit,
         </MediumText>
       </TitleContainer>
+      <DoubleArrowIcon />
     </PresentationContainer>
   );
 };
