@@ -14,7 +14,6 @@ const showAnimation = keyframes`
 `;
 
 export const NavigationContainer = styled.div`
-  background-color: ${Colors.blueLight};
   display: flex;
   justify-content: space-between;
   flex-direction: row;
@@ -24,7 +23,20 @@ export const NavigationContainer = styled.div`
   left: 0;
   right: 0;
   width: 100vw;
+  transition: all 0.25s ease;
   z-index: 50;
+
+  ${(props) => {
+    if (props.isScrollDown) {
+      return `opacity: 0; transform:translateY(-10rem); `;
+    } else {
+      if (props.positionY > 60) {
+        return `background-color: ${Colors.blueDark};    `;
+      } else {
+        return `background-color: ${Colors.blueLight};`;
+      }
+    }
+  }}
 `;
 
 export const HamburguerContainer = styled.div`
@@ -40,7 +52,14 @@ export const HamburguerContainer = styled.div`
 
   & > span {
     position: absolute;
-    background-color: ${Colors.blueDark};
+    background-color: ${(props) => {
+      if (props.positionY > 60) {
+        return Colors.blueLight;
+      } else {
+        return Colors.blueDark;
+      }
+    }};
+
     border-radius: 9px;
     width: 100%;
     height: 5px;
@@ -71,13 +90,27 @@ export const HamburguerContainer = styled.div`
 `;
 
 export const LightModeIcon = styled(LightMode)`
-  height: 48px;
-  width: 48px;
+  height: 4rem;
+  width: 4rem;
+  fill: ${(props) => {
+    if (props.positionY > 60) {
+      return Colors.blueLight;
+    } else {
+      return Colors.blueDark;
+    }
+  }};
   animation: ${showAnimation} 1s ease;
 `;
 
 export const DarkModeIcon = styled(DarkMode)`
-  height: 48px;
-  width: 48px;
+  height: 4rem;
+  width: 4rem;
+  fill: ${(props) => {
+    if (props.positionY > 60) {
+      return Colors.blueLight;
+    } else {
+      return Colors.blueDark;
+    }
+  }};
   animation: ${showAnimation} 1s ease;
 `;

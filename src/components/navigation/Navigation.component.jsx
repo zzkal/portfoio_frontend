@@ -7,7 +7,7 @@ import {
   HamburguerContainer,
 } from './navigation.styles';
 
-const Navigation = () => {
+const Navigation = ({ isScrollDown, positionY }) => {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -17,16 +17,20 @@ const Navigation = () => {
 
   return (
     <Fragment>
-      <NavigationContainer>
-        <HamburguerContainer onClick={handleHamburguer} isOpen={isOpen}>
+      <NavigationContainer isScrollDown={isScrollDown} positionY={positionY}>
+        <HamburguerContainer
+          onClick={handleHamburguer}
+          isOpen={isOpen}
+          positionY={positionY}
+        >
           <span></span>
           <span></span>
           <span></span>
         </HamburguerContainer>
         {isDarkMode ? (
-          <LightModeIcon onClick={handleMode} />
+          <LightModeIcon onClick={handleMode} positionY={positionY} />
         ) : (
-          <DarkModeIcon onClick={handleMode} />
+          <DarkModeIcon onClick={handleMode} positionY={positionY} />
         )}
       </NavigationContainer>
       <Outlet />
