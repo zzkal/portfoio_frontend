@@ -3,7 +3,6 @@ import { SimpleParagraph } from '../paragraphs.styles';
 import { Title1 } from '../Titles.component';
 import { SectionContainer } from './about.styles';
 
-import Image1 from '../../assets/img/img1.jpg';
 import { Fragment, useEffect, useRef, useState } from 'react';
 
 const About = () => {
@@ -27,9 +26,7 @@ const About = () => {
       if ((y < 720) & (y > 0) & firstTimeShown) {
         setFirstTimeShown(false);
         setStartAnimation(true);
-        console.log('Animate');
       }
-      console.log(y);
       setScrollTop(window.scrollY);
     };
 
@@ -50,7 +47,6 @@ const About = () => {
           tempore vel, neque autem eum esse pariatur, quia hic! Ab eum nesciunt
           non quos?
         </SimpleParagraph>
-        <MainImage src={Image1} animate={startAnimation} />
       </SectionContainer>
     </Fragment>
   );
