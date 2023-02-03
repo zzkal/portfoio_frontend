@@ -1,24 +1,25 @@
+import { MainImage } from '../Images.styles';
 import {
-  SmallText,
   PresentationContainer,
   BigText,
   MediumText,
   TitleContainer,
-  DoubleArrowIcon,
+  SmallText,
 } from './presentation.styles';
+import Image1 from '../../assets/img/man_portrait.jpeg';
 
 const Presentation = () => {
   return (
     <PresentationContainer>
       <TitleContainer>
-        <SmallText>Hi, i am</SmallText>
-        <BigText>Andres</BigText>
-        <MediumText>
+        <BigText>Andrés</BigText>
+        <MediumText>Full Stack Developer & Data Scientist</MediumText>
+        <MainImage src={Image1} />
+        <SmallText>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit rem
           officia incidunt fugiat praesentium ut! Velit,
-        </MediumText>
+        </SmallText>
       </TitleContainer>
-      <DoubleArrowIcon />
     </PresentationContainer>
   );
 };
