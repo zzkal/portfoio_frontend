@@ -1,36 +1,75 @@
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import { Colors } from '../styles/variables';
+import { normalAnimation, show } from '../styles/animation';
+import { TextSize } from '../styles/text-variables/text-size';
+import { TextWeight } from '../styles/text-variables/text-weight';
+import { motion } from 'framer-motion';
 
-const show = keyframes`
-from{
-  opacity: 0;
-}
-to {
-  opacity: 1;
-}
+export const Title1 = styled(motion.h1)`
+  ${({ weight, color, mt, size, pl, pr }) => {
+    return `
+      font-weight: ${weight || TextWeight.regular};
+      color: ${color || Colors.blueDark};
+      margin-top: ${mt || '0'};
+      font-size: ${size || TextSize.xxl};
+
+    `;
+  }}
 `;
 
-export const Title1 = styled.h1`
-  position: relative;
-  top: 0;
-  font-size: 5rem;
-  color: ${Colors.blueDark};
-  animation: ${(props) => (props.animate ? show : '')} 0.8s ease-in-out;
+export const Title2 = styled(motion.h2)`
+  ${({ weight, color, mt, size }) => {
+    return `
+      font-weight: ${weight || TextWeight.regular};
+      color: ${color || Colors.blueDark};
+      margin-top: ${mt || '1rem'};
+      font-size: ${size || TextSize.large};
+    `;
+  }}
 `;
 
-export const Title2 = styled.h2`
-  font-size: 2rem;
-  animation: ${(props) => (props.animate ? show : '')} 0.8s ease-in-out;
+export const Title3 = styled(motion.h3)`
+  ${({ weight, color, mt, size }) => {
+    return `
+      font-weight: ${weight || TextWeight.regular};
+      color: ${color || Colors.blueDark};
+      margin-top: ${mt || '1rem'};
+      font-size: ${size || TextSize.large};
+    `;
+  }}
 `;
-export const Title3 = styled.h3`
-  color: ${Colors.redLigth};
-  font-size: 2rem;
-  animation: ${(props) => (props.animate ? show : '')} 1s ease-in-out;
+
+export const Title4 = styled(motion.h4)`
+  margin-top: ${({ mt }) => mt || '1rem'};
+  ${({ weight, color, mt, size }) => {
+    return `
+      font-weight: ${weight || TextWeight.regular};
+      color: ${color || Colors.blueDark};
+      margin-top: ${mt || '1rem'};
+      font-size: ${size || TextSize.medium};
+    `;
+  }}
 `;
-export const Title4 = styled.h4`
-  font-size: 0.8rem;
-  animation: ${(props) => (props.animate ? show : '')} 0.8s ease-in-out;
+
+export const Title5 = styled(motion.h5)`
+  ${({ weight, color, mt, size }) => {
+    return `
+      font-weight: ${weight || TextWeight.regular};
+      color: ${color || Colors.blueDark};
+      margin-top: ${mt || '1rem'};
+      font-size: ${size || TextSize.small};
+    `;
+  }}
 `;
-export const Title5 = styled.h5`
-  font-size: 0.5rem;
+
+export const Title6 = styled(motion.h6)`
+  ${({ weight, color, mt, size }) => {
+    return `
+      font-weight: ${weight || TextWeight.regular};
+      color: ${color || Colors.blueDark};
+      margin-top: ${mt || '1rem'};
+      font-size: ${size || TextSize.mini};
+
+    `;
+  }}
 `;

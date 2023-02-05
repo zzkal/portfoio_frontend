@@ -1,14 +1,6 @@
 import styled, { keyframes } from 'styled-components';
 import { Colors } from '../styles/variables';
-
-const show = keyframes`
-from{
-  opacity: 0;
-}
-to {
-  opacity: 1;
-}
-`;
+import { show } from '../styles/animation';
 
 export const List1 = styled.ul`
   padding-top: 3rem;

@@ -3,15 +3,7 @@ import { ReactComponent as DarkMode } from '../../assets/dark_mode.svg';
 
 import styled, { keyframes } from 'styled-components';
 import { Colors } from '../../styles/variables';
-
-const showAnimation = keyframes`
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-`;
+import { show } from '../../styles/animation';
 
 export const NavigationContainer = styled.div`
   display: flex;
@@ -99,7 +91,7 @@ export const LightModeIcon = styled(LightMode)`
       return Colors.blueDark;
     }
   }};
-  animation: ${showAnimation} 1s ease;
+  animation: ${show} 1s ease;
 `;
 
 export const DarkModeIcon = styled(DarkMode)`
@@ -112,5 +104,5 @@ export const DarkModeIcon = styled(DarkMode)`
       return Colors.blueDark;
     }
   }};
-  animation: ${showAnimation} 1s ease;
+  animation: ${show} 1s ease;
 `;
