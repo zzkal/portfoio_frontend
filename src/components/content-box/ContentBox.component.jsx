@@ -1,18 +1,25 @@
-import { Paragraph2 } from '../paragraphs.styles';
+import { Paragraph } from '../paragraphs.styles';
 import { Title3 } from '../Titles.component';
 import { List1 } from '../Lists.styled';
 import { ContentBoxDiv } from './ContentBox.styles';
+import { Colors } from '../../styles/variables';
 
-const ContentBox = ({ animate }) => {
+const ContentBox = () => {
   return (
-    <ContentBoxDiv animate={animate}>
-      <Title3 animate={animate}>Web Development</Title3>
-      <Paragraph2 animate={animate}>
+    <ContentBoxDiv
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1 }}
+    >
+      <Title3 size='2.5rem' color={Colors.redLigth}>
+        Web Development
+      </Title3>
+      <Paragraph size='1.5rem' pt='2rem' color={Colors.blueLight}>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt aspernatur
         dolor facilis nemo dicta sit consequatur pariatur cum veritatis, eum
         sint officiis rem placeat. Adipisci perferendis eaque sunt omnis sint?
-      </Paragraph2>
-      <List1 animate={animate}>
+      </Paragraph>
+      <List1>
         <li>MongoDB</li>
         <li>ExpressJS</li>
         <li>React</li>
