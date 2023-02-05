@@ -52,11 +52,13 @@ export const Title4 = styled(motion.h4)`
 `;
 
 export const Title5 = styled(motion.h5)`
-  ${({ weight, color, mt, size }) => {
+  display: inline-block;
+  ${({ weight, color, mt, size, mr }) => {
     return `
       font-weight: ${weight || TextWeight.regular};
       color: ${color || Colors.blueDark};
-      margin-top: ${mt || '1rem'};
+      margin-top: ${mt || '1rem'};  
+      margin-right: ${mr || '1rem'};
       font-size: ${size || TextSize.small};
     `;
   }}
