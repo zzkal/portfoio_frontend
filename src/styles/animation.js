@@ -22,6 +22,23 @@ to {
 }
 `;
 
+export const spin = keyframes`
+  from{
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+`;
+export const scale = keyframes`
+  from{
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+`;
+
 export const normalAnimation = css`
   animation-name: ${showAndMoveUp};
   animation-duration: ${({ duration }) => duration || '1s'};
