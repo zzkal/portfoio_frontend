@@ -5,5 +5,6 @@ export const SectionContainer = styled.div`
   flex-flow: column;
   justify-content: start;
   position: relative;
-  padding: 8rem 2rem 10rem 2rem;
+  padding: 0 2rem 10rem 2rem;
+  margin-top: 8rem;
 `;
