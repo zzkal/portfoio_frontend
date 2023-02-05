@@ -7,8 +7,8 @@ export const List1 = styled.ul`
   & > li {
     color: ${Colors.blueLight};
     font-size: 1.5rem;
-    font-weight: 600;
+    font-weight: 400;
     list-style: inside;
-    animation: ${(props) => (props.animate ? show : '')} 1s ease-in-out;
+    text-align: justify;
   }
 `;
