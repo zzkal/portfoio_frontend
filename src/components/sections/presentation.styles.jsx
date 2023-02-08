@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const PresentationContainer = styled.div`
   display: flex;
   flex-flow: column;
-  justify-content: start;
+  justify-content: center;
   position: relative;
   padding: 0 2rem 0 2rem;
   height: 100vh;
