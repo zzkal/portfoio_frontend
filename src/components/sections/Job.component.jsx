@@ -20,9 +20,9 @@ const Job = () => {
           <Fragment>
             <Title1
               weight={TextWeight.bold}
-              initial={{ y: 100, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 1 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.25 }}
             >
               Work Experience
             </Title1>

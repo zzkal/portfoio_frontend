@@ -9,7 +9,7 @@ const ContentBox = () => {
     <ContentBoxDiv
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 1 }}
+      transition={{ duration: 0.25 }}
     >
       <Title3 size='2.5rem' color={Colors.redLigth}>
         Web Development

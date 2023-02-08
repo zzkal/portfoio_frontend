@@ -10,7 +10,7 @@ export const AccordionContainer = styled.div`
   margin-top: 11rem;
 `;
 
-export const AccordionHeader = styled.div`
+export const AccordionHeader = styled(motion.div)`
   background-color: ${Colors.blueLight};
   color: ${Colors.blueDark};
   border-bottom: 2px solid ${Colors.blueDark};
@@ -27,13 +27,13 @@ export const AccordionHeader = styled.div`
 export const PlusIcon = styled(PIcon)`
   height: 4rem;
   width: 4rem;
-  animation: ${spin} 0.5s ease-in-out;
+  animation: ${spin} 0.25s ease-in-out;
 `;
 
 export const LessIcon = styled(LIcon)`
   height: 4rem;
   width: 4rem;
-  animation: ${scale} 0.5s ease-in-out;
+  animation: ${scale} 0.25s ease-in-out;
 `;
 
 export const PlaceIcon = styled(PlIcon)`
@@ -47,5 +47,5 @@ export const AccordionDetails = styled(motion.div)`
   display: flex;
   flex-flow: column;
   color: ${Colors.blueLight};
-  padding: 3rem;
+  padding: 3rem 3rem 7rem 3rem;
 `;

@@ -14,16 +14,20 @@ const Projects = () => {
 
   return (
     <Waypoint onEnter={handleOnEnter}>
-      <ProjectConainer>
+      <ProjectConainer
+        initial={{ height: '100vh' }}
+        animate={{ height: 'auto' }}
+        transition={{ duration: 0.5 }}
+      >
         {startAnimation && (
           <Fragment>
             <Title1
               pl='2rem'
               pr='2rem'
               weight={TextWeight.bold}
-              initial={{ y: 100, opacity: 0 }}
+              initial={{ y: 50, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 1 }}
+              transition={{ duration: 0.2, delay: 0.2 }}
             >
               Projects
             </Title1>

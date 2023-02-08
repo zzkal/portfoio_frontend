@@ -19,7 +19,12 @@ const AccordionItem = () => {
 
   return (
     <Fragment>
-      <AccordionHeader onClick={handleOpenAccordion}>
+      <AccordionHeader
+        onClick={handleOpenAccordion}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.25 }}
+      >
         <Title3 weight={TextWeight.bold}>Facebook</Title3>
         {isOpen ? <LessIcon /> : <PlusIcon />}
       </AccordionHeader>
@@ -34,12 +39,12 @@ const AccordionItem = () => {
               open: { opacity: 1, height: 'auto' },
               collapsed: { opacity: 0, height: 0 },
             }}
-            transition={{ duration: 0.8, ease: [0.04, 0.62, 0.23, 0.98] }}
+            transition={{ duration: 0.25, ease: [0.04, 0.62, 0.23, 0.98] }}
             style={{ backgroundColor: Colors.blueDark }}
           >
             <AccordionDetails
               variants={{ collapsed: { scale: 0.8 }, open: { scale: 1 } }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.25 }}
             >
               <Title4 color={Colors.blueLight}>Facebook Co.</Title4>
               <div style={{ marginTop: '3rem' }}>

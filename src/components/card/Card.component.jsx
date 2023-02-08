@@ -16,9 +16,9 @@ import { TextWeight } from '../../styles/text-variables/text-weight';
 const Card = () => {
   return (
     <ContentCard
-      initial={{ y: 100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 1 }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.2, delay: 0.25 }}
     >
       <CardImage src={ProjectImage}></CardImage>
       <InnerCardContainer>
@@ -30,9 +30,9 @@ const Card = () => {
           cupiditate in nam debitis voluptate aliquid sed fugit fuga
         </Paragraph>
         <IconsContainer>
+          <Button href='#'>know more</Button>
           <GitHubIcon />
           <LaunchIcon />
-          <Button href='#'>know more</Button>
         </IconsContainer>
       </InnerCardContainer>
     </ContentCard>

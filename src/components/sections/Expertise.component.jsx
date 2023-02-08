@@ -4,6 +4,7 @@ import { Waypoint } from 'react-waypoint';
 import ContentBox from '../content-box/ContentBox.component';
 import { Title1 } from '../Titles.component';
 import { SectionContainer } from './about.styles';
+import { ExpertiseSection } from './expertise.styles';
 
 const Expertise = () => {
   const [startAnimation, setStartAnimation] = useState(false);
@@ -14,21 +15,21 @@ const Expertise = () => {
 
   return (
     <Waypoint onEnter={handleOnEnter}>
-      <SectionContainer>
+      <ExpertiseSection>
         {startAnimation && (
           <Fragment>
             <Title1
               weight={TextWeight.bold}
-              initial={{ y: 100, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 1 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.25 }}
             >
               Expertise
             </Title1>
             <ContentBox />
           </Fragment>
         )}
-      </SectionContainer>
+      </ExpertiseSection>
     </Waypoint>
   );
 };
