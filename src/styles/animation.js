@@ -27,7 +27,7 @@ export const spin = keyframes`
     transform: rotate(0deg);
   }
   to {
-    transform: rotate(360deg);
+    transform: rotate(90deg);
   }
 `;
 export const scale = keyframes`
