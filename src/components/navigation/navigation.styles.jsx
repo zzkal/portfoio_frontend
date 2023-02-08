@@ -37,8 +37,8 @@ export const HamburguerContainer = styled.div`
   left: 0;
   right: 0;
   background-color: transparent;
-  height: 36px;
-  width: 48px;
+  height: 30px;
+  width: 40px;
   transform: rotate(0deg);
   transition: all 0.5s ease-in-out;
 
@@ -64,7 +64,7 @@ export const HamburguerContainer = styled.div`
     top: 0;
     transform: ${(props) =>
       props.isOpen
-        ? 'translateY(15px) rotate(45deg)'
+        ? 'translateY(12.5px) rotate(45deg)'
         : 'translateY(0) rotate(0)'};
   }
   & :nth-child(2) {
@@ -76,14 +76,14 @@ export const HamburguerContainer = styled.div`
     bottom: 0;
     transform: ${(props) =>
       props.isOpen
-        ? 'translateY(-15px) rotate(-45deg)'
+        ? 'translateY(-12.5px) rotate(-45deg)'
         : 'translateY(0) rotate(0)'};
   }
 `;
 
 export const LightModeIcon = styled(LightMode)`
-  height: 4rem;
-  width: 4rem;
+  height: 32px;
+  width: 32px;
   fill: ${(props) => {
     if (props.positionY > 60) {
       return Colors.blueLight;
@@ -95,8 +95,8 @@ export const LightModeIcon = styled(LightMode)`
 `;
 
 export const DarkModeIcon = styled(DarkMode)`
-  height: 4rem;
-  width: 4rem;
+  height: 32px;
+  width: 32px;
   fill: ${(props) => {
     if (props.positionY > 60) {
       return Colors.blueLight;
