@@ -30,21 +30,20 @@ export const InnerCardContainer = styled.div`
 export const IconsContainer = styled.div`
   display: flex;
   flex-flow: row;
-  justify-content: space-around;
   align-items: flex-end;
   flex-grow: 2;
   padding-top: 3rem;
 `;
 
 export const GitHubIcon = styled(GHIcon)`
-  fill: ${Colors.blueLight};
-  margin-right: 2rem;
+  fill: ${({ isDark }) => (isDark ? Colors.blueDark : Colors.blueLight)};
+  margin-left: 2rem;
   height: 32px;
   width: 32px;
 `;
 export const LaunchIcon = styled(LIcon)`
   fill: ${Colors.blueLight};
-  margin-right: 2rem;
+  margin-left: 2rem;
   height: 32px;
   width: 32px;
 `;
@@ -61,10 +60,4 @@ export const Button = styled.a`
   font-weight: ${TextWeight.bold};
   background-color: ${Colors.redLigth};
   color: ${Colors.blueDark};
-`;
-
-export const CardDemo = styled.div`
-  background-color: red;
-  height: 100px;
-  width: 100px;
 `;
