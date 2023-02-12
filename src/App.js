@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import Navigation from './components/navigation/Navigation.component';
 import Home from './routes/home/Home.component';
+import Drawer from './components/drawer/Drawer.component';
 
 function App() {
   const [isScrollDown, setisScrollDown] = useState(false);
@@ -35,7 +36,15 @@ function App() {
           <Navigation isScrollDown={isScrollDown} positionY={scrollTop} />
         }
       >
-        <Route index element={<Home />}></Route>
+        <Route
+          index
+          element={
+            <>
+              <Drawer />
+              <Home />
+            </>
+          }
+        />
       </Route>
     </Routes>
   );
