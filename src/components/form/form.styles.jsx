@@ -42,6 +42,13 @@ export const SelectComponent = styled(motion.select)`
   margin-top: 2rem;
 `;
 
+export const ErrorMsg = styled(motion.span)`
+  color: #ec3e3e;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 0.5rem;
+`;
+
 export const ButtonForm = styled(motion.input)`
   margin-top: 2rem;
   border-radius: 10px;
