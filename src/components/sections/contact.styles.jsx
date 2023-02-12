@@ -8,14 +8,14 @@ import { motion } from 'framer-motion';
 export const ContactSection = styled(motion.section)`
   background-color: ${Colors.blueDark};
   margin-top: 20rem;
-  padding: 5rem 2rem 2rem 2rem;
+  padding: 0rem 2rem 2rem 2rem;
 `;
 
 export const IconContainer = styled.div`
   display: flex;
   flex-flow: row;
   justify-content: center;
-  margin-top: 3rem;
+  margin-top: 6rem;
 `;
 
 export const IconBox = styled.div`
