@@ -8,9 +8,17 @@
 
 html {
   font-size: 62.5%;
+  scroll-behavior: smooth;
 }
 
 body {
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
+  background: rgb(128, 171, 255);
+  background: linear-gradient(
+    55deg,
+    rgba(128, 171, 255, 1) 0%,
+    rgba(150, 186, 255, 1) 40%,
+    rgba(199, 218, 255, 1) 85%
+  );
 }
