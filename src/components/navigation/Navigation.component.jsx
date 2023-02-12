@@ -1,5 +1,7 @@
-import { Fragment, useState } from 'react';
+import { useState, useContext, Fragment } from 'react';
 import { Outlet } from 'react-router-dom';
+import { DrawerContext } from '../../context/DrawerContext.context';
+import Drawer from '../drawer/Drawer.component';
 import {
   NavigationContainer,
   LightModeIcon,
@@ -8,19 +10,21 @@ import {
 } from './navigation.styles';
 
 const Navigation = ({ isScrollDown, positionY }) => {
+  const { setIsDrawerOpen, isDrawerOpen } = useContext(DrawerContext);
   const [isDarkMode, setIsDarkMode] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
 
   const handleMode = () => setIsDarkMode(!isDarkMode);
 
-  const handleHamburguer = () => setIsOpen(!isOpen);
+  const handleHamburguer = () => {
+    setIsDrawerOpen(!isDrawerOpen);
+  };
 
   return (
     <Fragment>
       <NavigationContainer isScrollDown={isScrollDown} positionY={positionY}>
         <HamburguerContainer
           onClick={handleHamburguer}
-          isOpen={isOpen}
+          isOpen={isDrawerOpen}
           positionY={positionY}
         >
           <span></span>
