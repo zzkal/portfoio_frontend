@@ -4,6 +4,7 @@ import {
   AccordionDetails,
   PlaceIcon,
   LessIcon,
+  AccordiontDetailsContainer,
 } from './accordion.styles';
 import { Title3, Title4, Title5, Title6 } from '../Titles.component';
 import { Colors } from '../../styles/variables';
@@ -30,7 +31,7 @@ const AccordionItem = () => {
       </AccordionHeader>
       <AnimatePresence initial={false}>
         {isOpen && (
-          <motion.div
+          <AccordiontDetailsContainer
             key='content'
             initial='collapsed'
             animate='open'
@@ -97,7 +98,7 @@ const AccordionItem = () => {
                 </Title5>
               </div>
             </AccordionDetails>
-          </motion.div>
+          </AccordiontDetailsContainer>
         )}
       </AnimatePresence>
     </Fragment>

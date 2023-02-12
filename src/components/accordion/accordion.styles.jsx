@@ -11,7 +11,7 @@ export const AccordionContainer = styled.div`
 `;
 
 export const AccordionHeader = styled(motion.div)`
-  background-color: ${Colors.blueLight};
+  background-color: transparent;
   color: ${Colors.blueDark};
   border-bottom: 2px solid ${Colors.blueDark};
   display: flex;
@@ -43,8 +43,15 @@ export const PlaceIcon = styled(PlIcon)`
   margin-right: 2rem;
 `;
 
+export const AccordiontDetailsContainer = styled(motion.div)`
+  -webkit-box-shadow: inset 0px 2px 9px 0px rgba(0, 0, 0, 1);
+  -moz-box-shadow: inset 0px 2px 9px 0px rgba(0, 0, 0, 1);
+  box-shadow: inset 0px 2px 9px 0px rgba(0, 0, 0, 1);
+`;
+
 export const AccordionDetails = styled(motion.div)`
   display: flex;
+
   flex-flow: column;
   color: ${Colors.blueLight};
   padding: 3rem 3rem 7rem 3rem;
