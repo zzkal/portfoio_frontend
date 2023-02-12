@@ -18,6 +18,7 @@ const Projects = () => {
         initial={{ height: '100vh' }}
         animate={{ height: 'auto' }}
         transition={{ duration: 0.5 }}
+        id='projects'
       >
         {startAnimation && (
           <Fragment>

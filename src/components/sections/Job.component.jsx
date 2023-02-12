@@ -15,7 +15,7 @@ const Job = () => {
 
   return (
     <Waypoint onEnter={handleOnEnter}>
-      <JobContainer>
+      <JobContainer id='work-experience'>
         {startAnimation && (
           <Fragment>
             <Title1
