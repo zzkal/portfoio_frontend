@@ -8,7 +8,6 @@ export const ContentBoxDiv = styled(motion.div)`
   flex-flow: column;
   justify-content: space-around;
   padding: 3rem;
-  margin-top: 8rem;
   border-radius: 30px;
   background-color: ${Colors.blueDark};
 `;
