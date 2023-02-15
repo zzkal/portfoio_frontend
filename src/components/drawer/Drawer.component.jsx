@@ -5,6 +5,8 @@ import { DrawerContainer } from './drawer.styles';
 import { DrawerContext } from '../../context/DrawerContext.context';
 import { AnimatePresence, motion } from 'framer-motion';
 import { HamburguerContainer } from '../navigation/navigation.styles';
+import { Link, useLocation } from 'react-router-dom';
+import { SectionIdContext } from '../../context/SectionId.context';
 
 const variants = {
   hidden: { x: '-100%', opacity: 0 },
@@ -12,11 +14,15 @@ const variants = {
 };
 
 const Drawer = () => {
+  let location = useLocation();
   const { setIsDrawerOpen, isDrawerOpen } = useContext(DrawerContext);
+  const { setSectionId } = useContext(SectionIdContext);
 
   const handleHamburguer = () => {
     setIsDrawerOpen(!isDrawerOpen);
   };
+
+  const setSectionIdHandler = (id) => setSectionId(id);
 
   const content = (
     <AnimatePresence initial={false}>
@@ -54,13 +60,25 @@ const Drawer = () => {
           </HamburguerContainer>
 
           <ListMenuContainer>
+            {location.pathname !== '/' && (
+              <ListMenuItem
+                initial={{ opacity: 0, x: -10 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.25, delay: 0.25 }}
+                onClick={handleHamburguer}
+              >
+                <Link to='/'>Home</Link>
+              </ListMenuItem>
+            )}
             <ListMenuItem
               initial={{ opacity: 0, x: -10 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.25, delay: 0.25 }}
               onClick={handleHamburguer}
             >
-              <a href='#projects'> Projects</a>
+              <Link to='/' onClick={() => setSectionIdHandler('projects')}>
+                Projects
+              </Link>
             </ListMenuItem>
             <ListMenuItem
               initial={{ opacity: 0, x: -10 }}
@@ -68,7 +86,12 @@ const Drawer = () => {
               transition={{ duration: 0.25, delay: 0.45 }}
               onClick={handleHamburguer}
             >
-              <a href='#work-experience'> Work Experience</a>
+              <Link
+                to='/'
+                onClick={() => setSectionIdHandler('work-experience')}
+              >
+                Work Experience
+              </Link>
             </ListMenuItem>
             <ListMenuItem
               initial={{ opacity: 0, x: -10 }}
@@ -76,7 +99,9 @@ const Drawer = () => {
               transition={{ duration: 0.25, delay: 0.65 }}
               onClick={handleHamburguer}
             >
-              <a href='#contact'> Contact</a>
+              <Link to='/' onClick={() => setSectionIdHandler('contact')}>
+                Contact
+              </Link>
             </ListMenuItem>
             <ListMenuItem
               initial={{ opacity: 0, x: -10 }}
