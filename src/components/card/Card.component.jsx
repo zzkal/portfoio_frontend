@@ -30,7 +30,7 @@ const Card = () => {
           cupiditate in nam debitis voluptate aliquid sed fugit fuga
         </Paragraph>
         <IconsContainer>
-          <Button href='#'>know more</Button>
+          <Button to='/project/1'>know more</Button>
           <GitHubIcon />
           <LaunchIcon />
         </IconsContainer>

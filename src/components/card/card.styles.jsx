@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import { ReactComponent as GHIcon } from '../../assets/githubicon.svg';
 import { ReactComponent as LIcon } from '../../assets/open.svg';
@@ -48,7 +49,7 @@ export const LaunchIcon = styled(LIcon)`
   width: 32px;
 `;
 
-export const Button = styled.a`
+export const Button = styled(NavLink)`
   flex-grow: 2;
   height: 4rem;
   border-radius: 5px;
