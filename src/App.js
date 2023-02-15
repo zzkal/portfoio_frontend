@@ -1,12 +1,15 @@
 import { Routes, Route } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Fragment, useContext } from 'react';
 import Navigation from './components/navigation/Navigation.component';
 import Home from './routes/home/Home.component';
 import Drawer from './components/drawer/Drawer.component';
+import ProjectDetailsPage from './routes/project-details/ProjectDetailsPage.component';
+import { SectionIdContext } from './context/SectionId.context';
 
 function App() {
   const [isScrollDown, setisScrollDown] = useState(false);
   const [scrollTop, setScrollTop] = useState(0);
+  const { sectionId, setSectionId } = useContext(SectionIdContext);
 
   useEffect(() => {
     const handleScroll = (e) => {
@@ -28,25 +31,31 @@ function App() {
     };
   }, [scrollTop]);
 
+  useEffect(() => {
+    if (sectionId) {
+      document.getElementById(sectionId).scrollIntoView();
+    }
+
+    return () => setSectionId('');
+  }, [sectionId]);
+
   return (
-    <Routes>
-      <Route
-        path='/'
-        element={
-          <Navigation isScrollDown={isScrollDown} positionY={scrollTop} />
-        }
-      >
+    <Fragment>
+      <Routes>
         <Route
-          index
+          path='/'
           element={
             <>
               <Drawer />
-              <Home />
+              <Navigation isScrollDown={isScrollDown} positionY={scrollTop} />
             </>
           }
-        />
-      </Route>
-    </Routes>
+        >
+          <Route index element={<Home />} />
+          <Route path='/project/:id' element={<ProjectDetailsPage />} />
+        </Route>
+      </Routes>
+    </Fragment>
   );
 }
 
