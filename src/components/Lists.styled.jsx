@@ -13,6 +13,15 @@ export const List1 = styled.ul`
     text-align: justify;
   }
 `;
+export const List2 = styled.ul`
+  & > li {
+    color: ${Colors.blueDark};
+    font-size: 2rem;
+    font-weight: 400;
+    list-style: inside;
+    text-align: justify;
+  }
+`;
 
 export const ListMenuContainer = styled(motion.ul)`
   display: flex;
