@@ -52,7 +52,7 @@ function App() {
           }
         >
           <Route index element={<Home />} />
-          <Route path='/project/:id' element={<ProjectDetailsPage />} />
+          <Route path='/project/:pid' element={<ProjectDetailsPage />} />
         </Route>
       </Routes>
     </Fragment>
