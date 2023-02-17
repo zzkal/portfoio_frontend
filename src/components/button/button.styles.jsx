@@ -15,15 +15,15 @@ export const ButtonComponent = styled.a`
   font-weight: ${TextWeight.bold};
   background-color: ${Colors.redLigth};
   color: ${Colors.blueDark};
-  box-shadow: -3px 9px 18px -9px rgba(0, 0, 0, 0.57);
-  -webkit-box-shadow: -3px 9px 18px -9px rgba(0, 0, 0, 0.57);
-  -moz-box-shadow: -3px 9px 18px -9px rgba(0, 0, 0, 0.57);
+  user-select: none;
+  box-shadow: -5px 5px 0px -1px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: -5px 5px 0px -1px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: -5px 5px 0px -1px rgba(0, 0, 0, 0.75);
   transition: all 0.25s ease-in-out;
 
   &:active {
-    transform: translateY(-1rem);
-    box-shadow: -5px 1px 0px -2px rgba(0, 0, 0, 0.57);
-    -webkit-box-shadow: -5px 1px 0px -2px rgba(0, 0, 0, 0.57);
-    -moz-box-shadow: -5px 1px 0px -2px rgba(0, 0, 0, 0.57);
+    background-color: ${Colors.blueLight};
+    transform: translateY(0.2rem);
+    box-shadow: none;
   }
 `;
