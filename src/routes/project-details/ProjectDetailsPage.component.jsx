@@ -9,8 +9,13 @@ import Image1 from '../../assets/img/project.jpg';
 import { List2 } from '../../components/Lists.styled';
 import { LinkComponent } from '../../components/Links.styles';
 import { HomePage } from '../home/home.styles';
+import { useParams } from 'react-router-dom';
+
+import data_portfolio from '../../data/data';
 
 const ProjectDetailsPage = () => {
+  const { pid } = useParams();
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -18,60 +23,63 @@ const ProjectDetailsPage = () => {
   return (
     <Fragment>
       <HomePage>
-        <div style={{ padding: '2rem', marginTop: '6rem' }} id='project-title'>
-          <Title1 color={Colors.blueDark} weight={TextWeight.bold}>
-            Project Name
-          </Title1>
-          <img
-            src={Image1}
-            alt='img'
-            width='100%'
-            style={{ marginTop: '2rem' }}
-          />
-          <Title3 weight={TextWeight.bold} mt='4rem'>
-            Description
-          </Title3>
-          <Paragraph>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-            Voluptatibus tenetur dolorem ullam rerum dolore nisi, necessitatibus
-            provident accusantium in sit ducimus inventore enim dignissimos
-            ratione non exercitationem ab doloribus eveniet.
-          </Paragraph>
-          <LinkComponent href='#'>Github</LinkComponent>
-          <LinkComponent href='#'>Live</LinkComponent>
-          <Title3 weight={TextWeight.bold} mt='4rem'>
-            Type of project
-          </Title3>
-          <Paragraph>Personal project</Paragraph>
-          <Title3 weight={TextWeight.bold} mt='4rem'>
-            Stack
-          </Title3>
-          <List2>
-            <li>tect 1</li>
-            <li>tect 2</li>
-            <li>tect 3</li>
-            <li>tect 4</li>
-            <li>tect 5</li>
-          </List2>
-          <Title3 weight={TextWeight.bold} mt='4rem'>
-            Design Desicions
-          </Title3>
-          <Paragraph>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facere
-            laborum necessitatibus aliquid cupiditate illo dignissimos iusto,
-            minus praesentium eveniet quod, nemo tempora earum provident
-            explicabo tempore blanditiis. Vel, veritatis voluptatem.
-          </Paragraph>
-          <Title3 weight={TextWeight.bold} mt='4rem'>
-            Challenges and resolutions
-          </Title3>
-          <Paragraph>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facere
-            laborum necessitatibus aliquid cupiditate illo dignissimos iusto,
-            minus praesentium eveniet quod, nemo tempora earum provident
-            explicabo tempore blanditiis. Vel, veritatis voluptatem.
-          </Paragraph>
-        </div>
+        {data_portfolio.projects
+          .filter(({ id }) => id.toString() === pid)
+          .map(
+            ({
+              projectName,
+              longDescription,
+              typeProject,
+              stack,
+              designDesicion,
+              challenges,
+              gitLink,
+              appLink,
+            }) => {
+              return (
+                <div
+                  style={{ padding: '2rem', marginTop: '6rem' }}
+                  id='project-title'
+                >
+                  <Title1 color={Colors.blueDark} weight={TextWeight.bold}>
+                    {projectName}
+                  </Title1>
+                  <img
+                    src={Image1}
+                    alt='img'
+                    width='100%'
+                    style={{ marginTop: '2rem' }}
+                  />
+                  <Title3 weight={TextWeight.bold} mt='4rem'>
+                    Description
+                  </Title3>
+                  <Paragraph>{longDescription}</Paragraph>
+                  <LinkComponent href={gitLink}>Github</LinkComponent>
+                  <LinkComponent href={appLink}>Live</LinkComponent>
+                  <Title3 weight={TextWeight.bold} mt='4rem'>
+                    Type of project
+                  </Title3>
+                  <Paragraph>{typeProject}</Paragraph>
+                  <Title3 weight={TextWeight.bold} mt='4rem'>
+                    Stack
+                  </Title3>
+                  <List2>
+                    {stack.map((item) => (
+                      <li key={item.id}>{item.skillName}</li>
+                    ))}
+                  </List2>
+                  <Title3 weight={TextWeight.bold} mt='4rem'>
+                    Design Desicions
+                  </Title3>
+                  <Paragraph>{designDesicion}</Paragraph>
+                  <Title3 weight={TextWeight.bold} mt='4rem'>
+                    Challenges and resolutions
+                  </Title3>
+                  <Paragraph>{challenges}</Paragraph>
+                </div>
+              );
+            }
+          )}
 
         <Contact />
       </HomePage>

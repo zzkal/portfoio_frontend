@@ -11,9 +11,11 @@ import { Colors } from '../../styles/variables';
 import { List1 } from '../Lists.styled';
 import { TextWeight } from '../../styles/text-variables/text-weight';
 import { Fragment, useState } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 
-const AccordionItem = () => {
+const AccordionItem = ({
+  job: { companyName, location, initDate, endDate, tasks, stack },
+}) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleOpenAccordion = () => setIsOpen(!isOpen);
@@ -26,7 +28,7 @@ const AccordionItem = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.25 }}
       >
-        <Title3 weight={TextWeight.bold}>Facebook</Title3>
+        <Title3 weight={TextWeight.bold}>{companyName}</Title3>
         {isOpen ? <LessIcon /> : <PlusIcon />}
       </AccordionHeader>
       <AnimatePresence initial={false}>
@@ -47,7 +49,7 @@ const AccordionItem = () => {
               variants={{ collapsed: { scale: 0.8 }, open: { scale: 1 } }}
               transition={{ duration: 0.25 }}
             >
-              <Title4 color={Colors.blueLight}>Facebook Co.</Title4>
+              <Title4 color={Colors.blueLight}>{companyName}</Title4>
               <div style={{ marginTop: '3rem' }}>
                 <PlaceIcon />
                 <Title5
@@ -64,38 +66,23 @@ const AccordionItem = () => {
                 weight={TextWeight.regular}
                 size='1.75rem'
               >
-                2022 - present
+                {initDate} - {endDate}
               </Title6>
               <List1>
-                <li>
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                  Mollitia illo,
-                </li>
-                <li>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Quibusdam similique pariatur consectetur provident deleniti
-                  ipsum consequuntur fuga recusandae beatae, optio, sit
-                  voluptate,
-                </li>
-                <li>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero
-                  ab quae, nesciunt unde doloribus temporibus impedit autem
-                  itaque
-                </li>
+                {tasks.map(({ id, description }) => (
+                  <li key={id}>{description}</li>
+                ))}
               </List1>
               <div style={{ marginTop: '3rem' }}>
-                <Title5 weight={TextWeight.bold} color={Colors.redLigth}>
-                  React
-                </Title5>
-                <Title5 weight={TextWeight.bold} color={Colors.redLigth}>
-                  MongoDb
-                </Title5>
-                <Title5 weight={TextWeight.bold} color={Colors.redLigth}>
-                  NextJS
-                </Title5>
-                <Title5 weight={TextWeight.bold} color={Colors.redLigth}>
-                  ExpressJS
-                </Title5>
+                {stack.map(({ id, skillName }) => (
+                  <Title5
+                    key={id}
+                    weight={TextWeight.bold}
+                    color={Colors.redLigth}
+                  >
+                    {skillName}
+                  </Title5>
+                ))}
               </div>
             </AccordionDetails>
           </AccordiontDetailsContainer>

@@ -4,7 +4,7 @@ import Card from '../card/Card.component';
 
 import './carrousel.styles.scss';
 
-const Carrrousel = () => {
+const Carrrousel = ({ projdata }) => {
   useEffect(() => register(), []);
 
   return (
@@ -14,12 +14,11 @@ const Carrrousel = () => {
       loop='true'
       pagination='true'
     >
-      <swiper-slide>
-        <Card />
-      </swiper-slide>
-      <swiper-slide>
-        <Card />
-      </swiper-slide>
+      {projdata.map((project) => (
+        <swiper-slide>
+          <Card key={project.id} project={project} />
+        </swiper-slide>
+      ))}
     </swiper-container>
   );
 };

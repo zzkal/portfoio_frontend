@@ -6,7 +6,7 @@ import { Title1 } from '../Titles.component';
 import { SectionContainer } from './about.styles';
 import { ExpertiseSection } from './expertise.styles';
 
-const Expertise = () => {
+const Expertise = ({ edata }) => {
   const [startAnimation, setStartAnimation] = useState(false);
 
   const handleOnEnter = () => {
@@ -26,7 +26,9 @@ const Expertise = () => {
             >
               Expertise
             </Title1>
-            <ContentBox />
+            {edata.map((el) => {
+              return <ContentBox key={el.id} edata={el} />;
+            })}
           </Fragment>
         )}
       </ExpertiseSection>

@@ -1,12 +1,13 @@
 import { MainImage } from '../Images.styles';
 import { PresentationContainer } from './presentation.styles';
-import Image1 from '../../assets/img/man_portrait.jpeg';
-import { Title1, Title4, Title5 } from '../Titles.component';
+import { Title1, Title4 } from '../Titles.component';
 import { Colors } from '../../styles/variables';
 import { TextWeight } from '../../styles/text-variables/text-weight';
 import { Paragraph } from '../paragraphs.styles';
 
-const Presentation = () => {
+import myImage from '../../assets/img/man_portrait.jpeg';
+
+const Presentation = ({ pdata: { name, description, career, imgUrl } }) => {
   return (
     <PresentationContainer>
       <Title1
@@ -16,7 +17,7 @@ const Presentation = () => {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5 }}
       >
-        Andrés
+        {name}
       </Title1>
 
       <Title4
@@ -26,10 +27,10 @@ const Presentation = () => {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5 }}
       >
-        Full Stack Developer & Data Scientist
+        {career}
       </Title4>
       <MainImage
-        src={Image1}
+        src={myImage}
         initial={{ scale: 0, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 0.5 }}
@@ -44,8 +45,7 @@ const Presentation = () => {
         size='1.5rem'
         pt='1rem'
       >
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit rem
-        officia incidunt fugiat praesentium ut! Velit,
+        {description}
       </Paragraph>
     </PresentationContainer>
   );

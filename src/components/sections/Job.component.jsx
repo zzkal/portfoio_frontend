@@ -6,7 +6,7 @@ import AccordionItem from '../accordion/AccordionItem.component';
 import { Title1 } from '../Titles.component';
 import { JobContainer } from './job.styles';
 
-const Job = () => {
+const Job = ({ jdata }) => {
   const [startAnimation, setStartAnimation] = useState(false);
 
   const handleOnEnter = () => {
@@ -27,9 +27,9 @@ const Job = () => {
               Work Experience
             </Title1>
             <AccordionContainer>
-              <AccordionItem />
-              <AccordionItem />
-              <AccordionItem />
+              {jdata.map((job) => (
+                <AccordionItem key={job.id} job={job} />
+              ))}
             </AccordionContainer>
           </Fragment>
         )}

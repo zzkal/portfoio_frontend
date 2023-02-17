@@ -4,7 +4,7 @@ import { List1 } from '../Lists.styled';
 import { ContentBoxDiv } from './ContentBox.styles';
 import { Colors } from '../../styles/variables';
 
-const ContentBox = () => {
+const ContentBox = ({ edata: { field, description, stack } }) => {
   return (
     <ContentBoxDiv
       initial={{ opacity: 0 }}
@@ -12,18 +12,15 @@ const ContentBox = () => {
       transition={{ duration: 0.25 }}
     >
       <Title3 size='2.5rem' color={Colors.redLigth}>
-        Web Development
+        {field}
       </Title3>
       <Paragraph size='1.5rem' pt='2rem' color={Colors.blueLight}>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt aspernatur
-        dolor facilis nemo dicta sit consequatur pariatur cum veritatis, eum
-        sint officiis rem placeat. Adipisci perferendis eaque sunt omnis sint?
+        {description}
       </Paragraph>
       <List1>
-        <li>MongoDB</li>
-        <li>ExpressJS</li>
-        <li>React</li>
-        <li>NodeJS</li>
+        {stack.map(({ id, skillName }) => (
+          <li key={id}>{skillName}</li>
+        ))}
       </List1>
     </ContentBoxDiv>
   );

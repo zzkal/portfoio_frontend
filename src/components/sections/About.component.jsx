@@ -7,7 +7,7 @@ import { Colors } from '../../styles/variables';
 import { Paragraph } from '../paragraphs.styles';
 import { TextSize } from '../../styles/text-variables/text-size';
 
-const About = () => {
+const About = ({ adata: { description } }) => {
   const [startAnimation, setStartAnimation] = useState(false);
 
   const handleOnEnter = () => {
@@ -34,10 +34,7 @@ const About = () => {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.2 }}
             >
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nisi eos
-              iste quidem deserunt aut asperiores velit suscipit facilis,
-              corporis eum laborum iure optio recusandae quis autem est totam,
-              nam consectetur.
+              {description}
             </Paragraph>
           </Fragment>
         )}

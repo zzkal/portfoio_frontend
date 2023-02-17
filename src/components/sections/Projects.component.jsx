@@ -5,7 +5,7 @@ import { TextWeight } from '../../styles/text-variables/text-weight';
 import { ProjectConainer } from './projects.styles';
 import Carrrousel from '../carrousel/carrousel.component';
 
-const Projects = () => {
+const Projects = ({ projdata }) => {
   const [startAnimation, setStartAnimation] = useState(false);
 
   const handleOnEnter = () => {
@@ -32,7 +32,7 @@ const Projects = () => {
             >
               Projects
             </Title1>
-            <Carrrousel />
+            <Carrrousel projdata={projdata} />
           </Fragment>
         )}
       </ProjectConainer>

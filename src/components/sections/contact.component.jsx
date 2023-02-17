@@ -29,8 +29,6 @@ const Contact = () => {
     },
   });
 
-  const onSubmit = (data) => console.log(data);
-
   const handleOnEnter = () => {
     setStartAnimation(true);
   };
