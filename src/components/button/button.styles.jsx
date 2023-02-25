@@ -26,4 +26,13 @@ export const ButtonComponent = styled.a`
     transform: translateY(0.2rem);
     box-shadow: none;
   }
+
+  @media screen and (min-width: 1200px) {
+    &:hover {
+      background-color: ${Colors.blueLight};
+      cursor: pointer;
+      transform: translateY(0.2rem);
+      box-shadow: none;
+    }
+  }
 `;
