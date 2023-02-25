@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import { DrawerProvider } from './context/DrawerContext.context';
 import { SectionIdProvider } from './context/SectionId.context';
+import { DataProvider } from './context/DataContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -13,7 +14,9 @@ root.render(
     <BrowserRouter>
       <SectionIdProvider>
         <DrawerProvider>
-          <App />
+          <DataProvider>
+            <App />
+          </DataProvider>
         </DrawerProvider>
       </SectionIdProvider>
     </BrowserRouter>

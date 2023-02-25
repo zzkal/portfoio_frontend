@@ -5,6 +5,7 @@ import Home from './routes/home/Home.component';
 import Drawer from './components/drawer/Drawer.component';
 import ProjectDetailsPage from './routes/project-details/ProjectDetailsPage.component';
 import { SectionIdContext } from './context/SectionId.context';
+import { DataContext } from './context/DataContext';
 
 function App() {
   const [isScrollDown, setisScrollDown] = useState(false);
@@ -47,7 +48,7 @@ function App() {
           element={
             <>
               <Drawer />
-              <Navigation isScrollDown={isScrollDown} positionY={scrollTop} />
+              <Navigation isscrolldown={isScrollDown} positiony={scrollTop} />
             </>
           }
         >
