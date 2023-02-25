@@ -31,10 +31,10 @@ const Card = ({
         </Paragraph>
         <IconsContainer>
           <Button to={`/project/${id}`}>know more</Button>
-          <a href={repoLink} target='_blank' rel='norferrer'>
+          <a href={repoLink} target='_blank' rel='noreferrer'>
             <GitHubIcon />
           </a>
-          <a href={appLink} target='_blank' rel='norferrer'>
+          <a href={appLink} target='_blank' rel='noreferrer'>
             <LaunchIcon />
           </a>
         </IconsContainer>
