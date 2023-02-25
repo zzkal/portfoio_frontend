@@ -1,13 +1,15 @@
-import { useState, Fragment } from 'react';
+import { useState, Fragment, useContext } from 'react';
 import { Waypoint } from 'react-waypoint';
+import { DataContext } from '../../context/DataContext';
 import { TextWeight } from '../../styles/text-variables/text-weight';
 import { AccordionContainer } from '../accordion/accordion.styles';
 import AccordionItem from '../accordion/AccordionItem.component';
 import { Title1 } from '../Titles.component';
 import { JobContainer } from './job.styles';
 
-const Job = ({ jdata }) => {
+const Job = () => {
   const [startAnimation, setStartAnimation] = useState(false);
+  const { jobs } = useContext(DataContext);
 
   const handleOnEnter = () => {
     setStartAnimation(true);
@@ -27,7 +29,7 @@ const Job = ({ jdata }) => {
               Work Experience
             </Title1>
             <AccordionContainer>
-              {jdata.map((job) => (
+              {jobs.map((job) => (
                 <AccordionItem key={job.id} job={job} />
               ))}
             </AccordionContainer>
