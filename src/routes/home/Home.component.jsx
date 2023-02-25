@@ -8,7 +8,6 @@ import Job from '../../components/sections/Job.component';
 import Contact from '../../components/sections/contact.component';
 import Footer from '../../components/sections/Footer.component';
 
-import data_portfolio from '../../data/data';
 import { DataContext } from '../../context/DataContext';
 
 const Home = () => {
