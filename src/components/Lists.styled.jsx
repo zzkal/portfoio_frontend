@@ -1,6 +1,5 @@
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import { Colors } from '../styles/variables';
-import { show } from '../styles/animation';
 import { motion } from 'framer-motion';
 
 export const List1 = styled.ul`

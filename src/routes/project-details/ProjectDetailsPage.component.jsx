@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useContext, useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import {
   Title1,
   TitleProjects,
@@ -23,7 +23,7 @@ import { List2 } from '../../components/Lists.styled';
 
 const ProjectDetailsPage = () => {
   const { pid } = useParams();
-  const { projects } = useContext(DataContext);
+  //const { projects } = useContext(DataContext);
   const [index, setIndex] = useState(parseInt(pid));
   const [isLoading, setIsLoading] = useState(false);
   const [projectObject, setProjectObject] = useState({});

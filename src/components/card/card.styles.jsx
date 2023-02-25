@@ -3,7 +3,6 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import { ReactComponent as GHIcon } from '../../assets/githubicon.svg';
 import { ReactComponent as LIcon } from '../../assets/open.svg';
-import { normalAnimation } from '../../styles/animation';
 import { TextSize } from '../../styles/text-variables/text-size';
 import { TextWeight } from '../../styles/text-variables/text-weight';
 import { Colors } from '../../styles/variables';

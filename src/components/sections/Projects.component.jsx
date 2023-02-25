@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, Fragment, useContext } from 'react';
+import { useState, Fragment, useContext } from 'react';
 import { Title1 } from '../Titles.component';
 import { Waypoint } from 'react-waypoint';
 import { TextWeight } from '../../styles/text-variables/text-weight';

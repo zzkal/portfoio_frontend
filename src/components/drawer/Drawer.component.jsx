@@ -1,4 +1,4 @@
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import ReactDOM from 'react-dom';
 import { ListMenuContainer, ListMenuItem } from '../Lists.styled';
 import { DrawerContainer } from './drawer.styles';

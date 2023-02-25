@@ -1,4 +1,4 @@
-import { Fragment, useState, useEffect, useContext } from 'react';
+import { Fragment, useContext } from 'react';
 import Presentation from '../../components/sections/Presentation.component';
 import About from '../../components/sections/About.component';
 import { HomePage } from './home.styles';

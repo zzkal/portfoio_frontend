@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { Colors } from '../styles/variables';
-import { normalAnimation, show } from '../styles/animation';
 import { TextSize } from '../styles/text-variables/text-size';
 import { TextWeight } from '../styles/text-variables/text-weight';
 import { motion } from 'framer-motion';

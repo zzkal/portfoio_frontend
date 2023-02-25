@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
-import { show } from '../styles/animation';
 
 export const MainImage = styled(motion.img)`
   max-width: 100%;

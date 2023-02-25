@@ -16,18 +16,18 @@ import { Colors } from '../../styles/variables';
 const Contact = () => {
   const [startAnimation, setStartAnimation] = useState(false);
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
-    defaultValues: {
-      name: '',
-      email: '',
-      subject: '',
-      message: '',
-    },
-  });
+  // const {
+  //   register,
+  //   handleSubmit,
+  //   formState: { errors },
+  // } = useForm({
+  //   defaultValues: {
+  //     name: '',
+  //     email: '',
+  //     subject: '',
+  //     message: '',
+  //   },
+  // });
 
   const handleOnEnter = () => {
     setStartAnimation(true);
