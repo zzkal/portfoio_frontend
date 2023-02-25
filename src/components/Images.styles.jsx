@@ -3,11 +3,12 @@ import styled from 'styled-components';
 import { show } from '../styles/animation';
 
 export const MainImage = styled(motion.img)`
-  width: 100%;
+  max-width: 100%;
   margin-top: 1rem;
-  /* box-shadow: -4px 3px 0px 1px rgba(0, 0, 0, 1);
-  -webkit-box-shadow: -4px 3px 0px 1px rgba(0, 0, 0, 1);
-  -moz-box-shadow: -4px 3px 0px 1px rgba(0, 0, 0, 1); */
+
+  @media screen and (min-width: 1200px) {
+    clip-path: polygon(100% 0%, 100% 50%, 100% 100%, 25% 100%, 0% 50%, 25% 0%);
+  }
 `;
 
 export const CardImage = styled.img`
@@ -17,4 +18,13 @@ export const CardImage = styled.img`
   width: 100%;
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
+`;
+
+export const ProjectImage = styled(motion.img)`
+  width: 100%;
+  margin-top: 2rem;
+
+  @media screen and (min-width: 1200px) {
+    width: 100%;
+  }
 `;
