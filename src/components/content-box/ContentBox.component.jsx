@@ -3,8 +3,21 @@ import { Title3 } from '../Titles.component';
 import { List1 } from '../Lists.styled';
 import { ContentBoxDiv } from './ContentBox.styles';
 import { Colors } from '../../styles/variables';
+import { useEffect, useState } from 'react';
 
 const ContentBox = ({ edata: { field, description, stack } }) => {
+  const [stackArray, setStackArray] = useState([]);
+
+  useEffect(() => {
+    let arr = [];
+    stack.map(async (route) => {
+      const res = await fetch('https://andres-dev-portfolio.site' + route);
+      const data = await res.json();
+      arr.push(data.name);
+      setStackArray(arr);
+    });
+  }, []);
+
   return (
     <ContentBoxDiv
       initial={{ opacity: 0 }}
@@ -18,8 +31,8 @@ const ContentBox = ({ edata: { field, description, stack } }) => {
         {description}
       </Paragraph>
       <List1>
-        {stack.map(({ id, skillName }) => (
-          <li key={id}>{skillName}</li>
+        {stackArray.map((e) => (
+          <li key={stackArray.indexOf(e)}>{e}</li>
         ))}
       </List1>
     </ContentBoxDiv>
