@@ -20,4 +20,19 @@ export const AboutMeSection = styled(motion.section)`
   background-color: ${Colors.blueDark};
   padding: 35% 2rem 35% 2rem;
   margin-top: 20rem;
+
+  @media screen and (min-height: 700px) and (max-height: 900px) {
+    margin-top: 12rem;
+  }
+
+  @media screen and (min-width: 700px) and (max-width: 1200px) {
+    height: auto;
+    padding: 35% 8rem 35% 8rem;
+  }
+  @media screen and (min-width: 1200px) {
+    flex-flow: row;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0;
+  }
 `;
