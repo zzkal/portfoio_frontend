@@ -1,17 +1,20 @@
 import { useState, useContext, Fragment } from 'react';
 import { Outlet } from 'react-router-dom';
 import { DrawerContext } from '../../context/DrawerContext.context';
-import Drawer from '../drawer/Drawer.component';
+import { SectionIdContext } from '../../context/SectionId.context';
 import {
   NavigationContainer,
   LightModeIcon,
   DarkModeIcon,
   HamburguerContainer,
+  NavigationTitles,
+  NavTitle,
 } from './navigation.styles';
 
-const Navigation = ({ isScrollDown, positionY }) => {
+const Navigation = ({ isscrolldown, positiony }) => {
   const { setIsDrawerOpen, isDrawerOpen } = useContext(DrawerContext);
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const { setSectionId } = useContext(SectionIdContext);
 
   const handleMode = () => setIsDarkMode(!isDarkMode);
 
@@ -19,22 +22,45 @@ const Navigation = ({ isScrollDown, positionY }) => {
     setIsDrawerOpen(!isDrawerOpen);
   };
 
+  const setSectionIdHandler = (id) => setSectionId(id);
+
   return (
     <Fragment>
-      <NavigationContainer isScrollDown={isScrollDown} positionY={positionY}>
-        <HamburguerContainer
-          onClick={handleHamburguer}
-          isOpen={isDrawerOpen}
-          positionY={positionY}
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </HamburguerContainer>
-        {isDarkMode ? (
-          <LightModeIcon onClick={handleMode} positionY={positionY} />
+      <NavigationContainer isscrolldown={isscrolldown} positiony={positiony}>
+        {window.innerWidth < 1200 ? (
+          <Fragment>
+            <HamburguerContainer
+              onClick={handleHamburguer}
+              isopen={isDrawerOpen}
+              positiony={positiony}
+            >
+              <span></span>
+              <span></span>
+              <span></span>
+            </HamburguerContainer>
+            {isDarkMode ? (
+              <LightModeIcon onClick={handleMode} positiony={positiony} />
+            ) : (
+              <DarkModeIcon onClick={handleMode} positiony={positiony} />
+            )}
+          </Fragment>
         ) : (
-          <DarkModeIcon onClick={handleMode} positionY={positionY} />
+          <Fragment>
+            <NavigationTitles isscrolldown={isscrolldown} positiony={positiony}>
+              <NavTitle to='/' onClick={() => setSectionIdHandler('projects')}>
+                Projects
+              </NavTitle>
+              <NavTitle
+                to='/'
+                onClick={() => setSectionIdHandler('work-experience')}
+              >
+                Work Experience
+              </NavTitle>
+              <NavTitle to='/' onClick={() => setSectionIdHandler('contact')}>
+                Contact
+              </NavTitle>
+            </NavigationTitles>
+          </Fragment>
         )}
       </NavigationContainer>
       <Outlet />

@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { Colors } from '../../styles/variables';
 import { show } from '../../styles/animation';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 export const NavigationContainer = styled.div`
   display: flex;
@@ -19,12 +20,12 @@ export const NavigationContainer = styled.div`
   transition: all 0.25s ease;
   z-index: 50;
 
-  ${({ isDrawerOpen, isScrollDown, positionY }) => {
-    if (!isDrawerOpen) {
-      if (isScrollDown) {
+  ${({ isdraweropen, isscrolldown, positiony }) => {
+    if (!isdraweropen) {
+      if (isscrolldown) {
         return `opacity: 0; transform:translateY(-10rem); `;
       } else {
-        if (positionY > 60) {
+        if (positiony > 60) {
           return `background-color: ${Colors.blueDark}; box-shadow: 1px 4px 5px -2px rgba(0,0,0,1);`;
         } else {
           return `background-color: ${Colors.blueLight}; `;
@@ -34,6 +35,45 @@ export const NavigationContainer = styled.div`
       return `background-color: ${Colors.blueDark};    `;
     }
   }}
+`;
+
+export const NavigationTitles = styled.div`
+  display: flex;
+  flex-flow: row;
+  justify-content: space-around;
+  width: 50%;
+
+  & > a {
+    ${({ isscrolldown, positiony }) => {
+      if (isscrolldown) {
+        return `opacity: 0; transform:translateY(-10rem); `;
+      } else {
+        if (positiony > 60) {
+          return `color: ${Colors.blueLight};`;
+        } else {
+          return `color: ${Colors.blueDark}; `;
+        }
+      }
+    }}
+  }
+`;
+
+export const NavTitle = styled(Link)`
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: 700;
+  color: ${Colors.blueDark};
+  padding: 0 1rem 0 1rem;
+  height: 4rem;
+  line-height: 4rem;
+  text-align: center;
+  transition: all 0.25s ease-in-out;
+
+  &:hover {
+    color: ${Colors.blueLight};
+    background-color: ${Colors.blueDark};
+  }
 `;
 
 export const HamburguerContainer = styled(motion.div)`
@@ -49,8 +89,8 @@ export const HamburguerContainer = styled(motion.div)`
 
   & > span {
     position: absolute;
-    background-color: ${({ isOpen, positionY }) => {
-      if (positionY > 60 || isOpen) {
+    background-color: ${({ isopen, positiony }) => {
+      if (positiony > 60 || isopen) {
         return Colors.blueLight;
       } else {
         return Colors.blueDark;
@@ -68,19 +108,19 @@ export const HamburguerContainer = styled(motion.div)`
   & :nth-child(1) {
     top: 0;
     transform: ${(props) =>
-      props.isOpen
+      props.isopen
         ? 'translateY(12.5px) rotate(45deg)'
         : 'translateY(0) rotate(0)'};
   }
   & :nth-child(2) {
     top: 40%;
-    transform: scaleX(${(props) => (props.isOpen ? '0' : '1')});
-    opacity: ${(props) => (props.isOpen ? '0' : '1')};
+    transform: scaleX(${(props) => (props.isopen ? '0' : '1')});
+    opacity: ${(props) => (props.isopen ? '0' : '1')};
   }
   & :nth-child(3) {
     bottom: 0;
     transform: ${(props) =>
-      props.isOpen
+      props.isopen
         ? 'translateY(-12.5px) rotate(-45deg)'
         : 'translateY(0) rotate(0)'};
   }
@@ -90,7 +130,7 @@ export const LightModeIcon = styled(LightMode)`
   height: 32px;
   width: 32px;
   fill: ${(props) => {
-    if (props.positionY > 60) {
+    if (props.positiony > 60) {
       return Colors.blueLight;
     } else {
       return Colors.blueDark;
@@ -103,7 +143,7 @@ export const DarkModeIcon = styled(DarkMode)`
   height: 32px;
   width: 32px;
   fill: ${(props) => {
-    if (props.positionY > 60) {
+    if (props.positiony > 60) {
       return Colors.blueLight;
     } else {
       return Colors.blueDark;
