@@ -1,12 +1,14 @@
-import { useState, useEffect, useRef, Fragment } from 'react';
+import { useState, useEffect, useRef, Fragment, useContext } from 'react';
 import { Title1 } from '../Titles.component';
 import { Waypoint } from 'react-waypoint';
 import { TextWeight } from '../../styles/text-variables/text-weight';
 import { ProjectConainer } from './projects.styles';
 import Carrrousel from '../carrousel/carrousel.component';
+import { DataContext } from '../../context/DataContext';
 
-const Projects = ({ projdata }) => {
+const Projects = () => {
   const [startAnimation, setStartAnimation] = useState(false);
+  const { projects } = useContext(DataContext);
 
   const handleOnEnter = () => {
     setStartAnimation(true);
@@ -32,7 +34,7 @@ const Projects = ({ projdata }) => {
             >
               Projects
             </Title1>
-            <Carrrousel projdata={projdata} />
+            <Carrrousel projects={projects} />
           </Fragment>
         )}
       </ProjectConainer>
