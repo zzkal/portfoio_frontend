@@ -11,6 +11,9 @@ export const List1 = styled.ul`
     font-weight: 400;
     list-style: inside;
     text-align: justify;
+    @media screen and (min-width: 1200px) {
+      font-size: 2rem;
+    }
   }
 `;
 export const List2 = styled.ul`
