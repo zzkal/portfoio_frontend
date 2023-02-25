@@ -36,7 +36,10 @@ function App() {
       document.getElementById(sectionId).scrollIntoView();
     }
 
-    return () => setSectionId('');
+    return () => {
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+      setSectionId('');
+    };
   }, [sectionId]);
 
   return (
