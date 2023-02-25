@@ -9,6 +9,10 @@ export const ContactSection = styled(motion.section)`
   background-color: ${Colors.blueDark};
   margin-top: 20rem;
   padding: 0rem 2rem 2rem 2rem;
+
+  @media screen and (min-width: 700px) {
+    padding: 0rem 5rem 2rem 5rem;
+  }
 `;
 
 export const IconContainer = styled.div`
