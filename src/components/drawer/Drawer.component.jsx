@@ -37,7 +37,7 @@ const Drawer = () => {
         >
           <HamburguerContainer
             onClick={handleHamburguer}
-            isOpen={isDrawerOpen}
+            isopen={isDrawerOpen}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.75 }}
