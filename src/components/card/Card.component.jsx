@@ -14,7 +14,7 @@ import { CardImage } from '../Images.styles';
 import { TextWeight } from '../../styles/text-variables/text-weight';
 
 const Card = ({
-  project: { id, projectName, shortDescription, gitLink, appLink, imgUrl },
+  project: { id, name, shortDesc, repoLink, appLink, imgUrl },
 }) => {
   return (
     <ContentCard
@@ -25,17 +25,17 @@ const Card = ({
       <CardImage src={ProjectImage} />
       <InnerCardContainer>
         <Title4 weight={TextWeight.bold} color={Colors.redLigth}>
-          {projectName}
+          {name}
         </Title4>
         <Paragraph pt='2rem' size='1.5rem' color={Colors.blueLight}>
-          {shortDescription}
+          {shortDesc}
         </Paragraph>
         <IconsContainer>
           <Button to={`/project/${id}`}>know more</Button>
-          <a href={gitLink}>
+          <a href={repoLink} target='_blank'>
             <GitHubIcon />
           </a>
-          <a href={appLink}>
+          <a href={appLink} target='_blank'>
             <LaunchIcon />
           </a>
         </IconsContainer>

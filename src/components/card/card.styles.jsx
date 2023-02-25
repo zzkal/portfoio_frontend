@@ -18,6 +18,18 @@ export const ContentCard = styled(motion.div)`
   box-shadow: -1px 21px 22px -16px rgba(0, 0, 0, 0.71);
   -webkit-box-shadow: -1px 21px 22px -16px rgba(0, 0, 0, 0.71);
   -moz-box-shadow: -1px 21px 22px -16px rgba(0, 0, 0, 0.71);
+
+  @media screen and (min-width: 700px) and (max-width: 1200px) {
+    width: 35rem;
+  }
+  @media screen and (min-width: 1200px) {
+    width: 40rem;
+    transition: all 0.25s ease-in-out;
+
+    &:hover {
+      transform: translateY(-2rem);
+    }
+  }
 `;
 
 export const InnerCardContainer = styled.div`
@@ -61,4 +73,9 @@ export const Button = styled(NavLink)`
   font-weight: ${TextWeight.bold};
   background-color: ${Colors.redLigth};
   color: ${Colors.blueDark};
+  transition: all 0.25s ease-in-out;
+
+  &:hover {
+    background-color: ${Colors.blueLight};
+  }
 `;
