@@ -15,6 +15,11 @@ export const Title1 = styled(motion.h1)`
 
     `;
   }}
+
+  @media screen and (min-width: 1200px) {
+    text-align: ${({ textalignleft }) => (textalignleft ? 'left' : 'center')};
+    font-size: 9rem;
+  }
 `;
 
 export const Title2 = styled(motion.h2)`
@@ -37,6 +42,10 @@ export const Title3 = styled(motion.h3)`
       font-size: ${size || TextSize.large};
     `;
   }}
+
+  @media screen and (min-width: 1200px) {
+    font-size: 3rem;
+  }
 `;
 
 export const Title4 = styled(motion.h4)`
@@ -49,6 +58,10 @@ export const Title4 = styled(motion.h4)`
       font-size: ${size || TextSize.medium};
     `;
   }}
+
+  @media screen and (min-width: 1200px) {
+    font-size: 2.5rem;
+  }
 `;
 
 export const Title5 = styled(motion.h5)`
@@ -74,4 +87,25 @@ export const Title6 = styled(motion.h6)`
 
     `;
   }}
+`;
+
+export const TitleProjects = styled(motion.h2)`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  ${({ weight, color, mt, size, pl, pr }) => {
+    return `
+      font-weight: ${weight || TextWeight.regular};
+      color: ${color || Colors.blueDark};
+      margin-top: ${mt || '0'};
+      font-size: ${size || TextSize.xxl};
+
+    `;
+  }}
+
+  @media screen and (min-width: 1200px) {
+    text-align: ${({ textalignleft }) => (textalignleft ? 'left' : 'center')};
+    font-size: 9rem;
+  }
 `;
