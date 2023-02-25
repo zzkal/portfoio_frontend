@@ -10,7 +10,7 @@ import { TextWeight } from '../../styles/text-variables/text-weight';
 import { Paragraph } from '../paragraphs.styles';
 
 import myImage from '../../assets/img/man_portrait.jpeg';
-import { Fragment, useState, useEffect, useContext } from 'react';
+import { Fragment, useContext } from 'react';
 import { DataContext } from '../../context/DataContext';
 
 const Presentation = (props) => {
@@ -42,7 +42,7 @@ const Presentation = (props) => {
             </Title4>
 
             <MainImage
-              src={myImage}
+              src={`https://www.andres-dev-portfolio.site${profile.imgUrl}`}
               initial={{ scale: 0, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.5 }}
@@ -99,7 +99,7 @@ const Presentation = (props) => {
             </PresentationTextContainer>
 
             <MainImage
-              src={myImage}
+              src={`https://www.andres-dev-portfolio.site${profile.imgUrl}`}
               initial={{ scale: 0, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.5 }}

@@ -22,7 +22,7 @@ const Card = ({
       animate={{ opacity: 1 }}
       transition={{ duration: 0.2, delay: 0.25 }}
     >
-      <CardImage src={ProjectImage} />
+      <CardImage src={`https://www.andres-dev-portfolio.site${imgUrl}`} />
       <InnerCardContainer>
         <Title4 weight={TextWeight.bold} color={Colors.redLigth}>
           {name}
