@@ -10,13 +10,33 @@ import { Title3, Title4, Title5, Title6 } from '../Titles.component';
 import { Colors } from '../../styles/variables';
 import { List1 } from '../Lists.styled';
 import { TextWeight } from '../../styles/text-variables/text-weight';
-import { Fragment, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import { AnimatePresence } from 'framer-motion';
 
 const AccordionItem = ({
-  job: { companyName, location, initDate, endDate, tasks, stack },
+  job: { companyName, location, initDate, endDate, task, stack },
 }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [stackArray, setStackArray] = useState([]);
+  const [taskArray, setTaskArray] = useState([]);
+
+  useEffect(() => {
+    let arr = [];
+    let arrtask = [];
+    stack.map(async (route) => {
+      const res = await fetch('https://andres-dev-portfolio.site' + route);
+      const data = await res.json();
+      arr.push(data.name);
+      setStackArray(arr);
+    });
+
+    task.map(async (route) => {
+      const res = await fetch('https://andres-dev-portfolio.site' + route);
+      const data = await res.json();
+      arrtask.push(data.description);
+      setTaskArray(arrtask);
+    });
+  }, []);
 
   const handleOpenAccordion = () => setIsOpen(!isOpen);
 
@@ -27,6 +47,7 @@ const AccordionItem = ({
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.25 }}
+        isopen={isOpen}
       >
         <Title3 weight={TextWeight.bold}>{companyName}</Title3>
         {isOpen ? <LessIcon /> : <PlusIcon />}
@@ -69,18 +90,14 @@ const AccordionItem = ({
                 {initDate} - {endDate}
               </Title6>
               <List1>
-                {tasks.map(({ id, description }) => (
-                  <li key={id}>{description}</li>
+                {taskArray.map((task) => (
+                  <li id={taskArray.indexOf(task)}>{task}</li>
                 ))}
               </List1>
               <div style={{ marginTop: '3rem' }}>
-                {stack.map(({ id, skillName }) => (
-                  <Title5
-                    key={id}
-                    weight={TextWeight.bold}
-                    color={Colors.redLigth}
-                  >
-                    {skillName}
+                {stackArray.map((stack) => (
+                  <Title5 weight={TextWeight.bold} color={Colors.redLigth}>
+                    {stack}
                   </Title5>
                 ))}
               </div>
