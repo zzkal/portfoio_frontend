@@ -14,4 +14,8 @@ export const Paragraph = styled(motion.p)`
       color: ${color || Colors.blueDark};
     `;
   }}
+
+  @media screen and (min-width: 1200px) {
+    font-size: 2.5rem;
+  }
 `;
