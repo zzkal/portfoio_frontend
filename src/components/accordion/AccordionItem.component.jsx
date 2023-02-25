@@ -23,19 +23,24 @@ const AccordionItem = ({
   useEffect(() => {
     let arr = [];
     let arrtask = [];
-    stack.map(async (route) => {
-      const res = await fetch('https://andres-dev-portfolio.site' + route);
-      const data = await res.json();
-      arr.push(data.name);
-      setStackArray(arr);
-    });
 
-    task.map(async (route) => {
-      const res = await fetch('https://andres-dev-portfolio.site' + route);
-      const data = await res.json();
-      arrtask.push(data.description);
-      setTaskArray(arrtask);
-    });
+    const fetchStakandTask = async () => {
+      stack.map(async (route) => {
+        const res = await fetch('https://andres-dev-portfolio.site' + route);
+        const data = await res.json();
+        arr.push(data.name);
+        setStackArray(arr);
+      });
+
+      task.map(async (route) => {
+        const res = await fetch('https://andres-dev-portfolio.site' + route);
+        const data = await res.json();
+        arrtask.push(data.description);
+        setTaskArray(arrtask);
+      });
+    };
+
+    fetchStakandTask();
   }, []);
 
   const handleOpenAccordion = () => setIsOpen(!isOpen);

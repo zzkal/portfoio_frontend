@@ -10,12 +10,15 @@ const ContentBox = ({ edata: { field, description, stack } }) => {
 
   useEffect(() => {
     let arr = [];
-    stack.map(async (route) => {
-      const res = await fetch('https://andres-dev-portfolio.site' + route);
-      const data = await res.json();
-      arr.push(data.name);
-      setStackArray(arr);
-    });
+    const fetchStack = () => {
+      stack.map(async (route) => {
+        const res = await fetch('https://andres-dev-portfolio.site' + route);
+        const data = await res.json();
+        arr.push(data.name);
+        setStackArray(arr);
+      });
+    };
+    fetchStack();
   }, []);
 
   return (

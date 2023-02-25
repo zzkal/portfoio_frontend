@@ -109,7 +109,13 @@ const Drawer = () => {
               transition={{ duration: 0.25, delay: 0.85 }}
               onClick={handleHamburguer}
             >
-              <a href='#'> Resume</a>
+              <a
+                href='/public/assets/files/resumme.pdf'
+                target='_blank'
+                rel='noreferrer'
+              >
+                Resume
+              </a>
             </ListMenuItem>
           </ListMenuContainer>
         </DrawerContainer>

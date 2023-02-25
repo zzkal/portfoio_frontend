@@ -1,5 +1,4 @@
 import { Fragment, useState } from 'react';
-import { useForm } from 'react-hook-form';
 import { TextWeight } from '../../styles/text-variables/text-weight';
 import { Title1, Title4 } from '../Titles.component';
 import { Waypoint } from 'react-waypoint';

@@ -18,13 +18,12 @@ import {
   ProjectDetailsContainer,
 } from './projectDetailsContainer.styles';
 import { ProjectImage } from '../../components/Images.styles';
-import { DataContext } from '../../context/DataContext';
 import { List2 } from '../../components/Lists.styled';
 
 const ProjectDetailsPage = () => {
   const { pid } = useParams();
   //const { projects } = useContext(DataContext);
-  const [index, setIndex] = useState(parseInt(pid));
+  const [index] = useState(parseInt(pid));
   const [isLoading, setIsLoading] = useState(false);
   const [projectObject, setProjectObject] = useState({});
   const [stackArray, setStackArray] = useState([]);
