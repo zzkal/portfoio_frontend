@@ -1,6 +1,5 @@
 import { Paragraph } from '../paragraphs.styles';
 import { Title4 } from '../Titles.component';
-import ProjectImage from '../../assets/img/project.jpg';
 import {
   Button,
   ContentCard,
