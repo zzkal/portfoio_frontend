@@ -36,11 +36,8 @@ function App() {
       document.getElementById(sectionId).scrollIntoView();
     }
 
-    return () => {
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-      setSectionId('');
-    };
-  }, [sectionId]);
+    return () => setSectionId('');
+  }, [sectionId, setSectionId]);
 
   return (
     <Fragment>

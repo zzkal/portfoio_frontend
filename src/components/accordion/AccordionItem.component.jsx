@@ -21,28 +21,26 @@ const AccordionItem = ({
   const [taskArray, setTaskArray] = useState([]);
 
   useEffect(() => {
-    let arr = [];
-    let arrtask = [];
+    function fetchStackAndTask() {
+      let arr = [];
+      let arrtask = [];
 
-    const fetchStakandTask = async () => {
-      // eslint-disable-next-line react-hooks/exhaustive-deps
       stack.map(async (route) => {
         const res = await fetch('https://andres-dev-portfolio.site' + route);
         const data = await res.json();
         arr.push(data.name);
         setStackArray(arr);
       });
-      // eslint-disable-next-line react-hooks/exhaustive-deps
+
       task.map(async (route) => {
         const res = await fetch('https://andres-dev-portfolio.site' + route);
         const data = await res.json();
         arrtask.push(data.description);
         setTaskArray(arrtask);
       });
-    };
-
-    fetchStakandTask();
-  }, []);
+    }
+    fetchStackAndTask();
+  }, [stack, task]);
 
   const handleOpenAccordion = () => setIsOpen(!isOpen);
 
@@ -85,7 +83,7 @@ const AccordionItem = ({
                   weight={TextWeight.regular}
                   size='1.75rem'
                 >
-                  USA
+                  {location}
                 </Title5>
               </div>
               <Title6
