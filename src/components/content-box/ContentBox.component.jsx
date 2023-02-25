@@ -19,7 +19,7 @@ const ContentBox = ({ edata: { field, description, stack } }) => {
       });
     };
     fetchStack();
-  }, []);
+  }, [stack]);
 
   return (
     <ContentBoxDiv

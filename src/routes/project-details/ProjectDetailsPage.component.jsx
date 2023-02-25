@@ -28,6 +28,8 @@ const ProjectDetailsPage = () => {
   const [projectObject, setProjectObject] = useState({});
   const [stackArray, setStackArray] = useState([]);
 
+  useEffect(() => window.scrollTo(0, 0), []);
+
   useEffect(() => {
     let arr = [];
 
@@ -40,7 +42,7 @@ const ProjectDetailsPage = () => {
         const data = await response.json();
 
         data.stack.map(async (route) => {
-          const res = await fetch('https://andres-dev-portfolio.site' + route);
+          const res = await fetch(`https://andres-dev-portfolio.site${route}`);
           const data = await res.json();
           arr.push(data.name);
           setStackArray(arr);
@@ -52,9 +54,7 @@ const ProjectDetailsPage = () => {
     };
 
     fetchProject();
-
-    window.scrollTo(0, 0);
-  }, []);
+  }, [index]);
 
   return (
     <Fragment>
