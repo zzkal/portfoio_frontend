@@ -9,7 +9,6 @@ import { Colors } from '../../styles/variables';
 import { TextWeight } from '../../styles/text-variables/text-weight';
 import { Paragraph } from '../paragraphs.styles';
 
-import myImage from '../../assets/img/man_portrait.jpeg';
 import { Fragment, useContext } from 'react';
 import { DataContext } from '../../context/DataContext';
 
